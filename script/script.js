@@ -10,13 +10,10 @@ function vypis(array, output){
 
 function Add(){
     const input = document.getElementById("add-component");
-    const content = document.getElementById("content");
-    const user_cart = document.getElementById("user-cart");
 
     if((input.value<=nabidka.length) && (input.value> 0) && (!isNaN(input.value))){
         kosik.push(nabidka[input.value -1]);  
         nabidka.splice(input.value - 1, 1);
-        //nabidka.slice(input.value); // dodelat
     }
 
     else{
@@ -40,25 +37,3 @@ function updateKosikOptions(){
     } 
 } 
 
-function Odeber(){ 
-    const select = document.getElementById("kosik-nabidka"); 
-    const index = select.selectedIndex;
-    
-    console.log("index = ", index)
-    
-    if(index >= 0){ 
-        nabidka.push(kosik[index]); 
-        kosik.splice(index, 1); 
-        updateKosikOptions(); 
-    } 
-    else { 
-        alert("Chyba");
-    } 
-    vypis(kosik, "user-cart"); 
-    vypis(nabidka, "content");
-
-    console.log(nabidka);
-    console.log(kosik);
-}
-
-vypis(nabidka, "content");
